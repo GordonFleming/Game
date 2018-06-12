@@ -1,0 +1,64 @@
+/*
+ * Game Development
+ * By Gordon Fleming
+ */
+package game;
+
+import java.awt.Graphics;
+
+/**
+ *
+ * @author flemi
+ */
+public abstract class GameObject {
+    
+    private int x, y;
+    private ID id;
+    private int velX, velY;
+    
+    public GameObject(int x, int y, ID id){
+        this.x = x;
+        this.y = y;
+        this.id = id;
+    }
+    
+    public abstract void tick();
+    public abstract void render(Graphics g);
+    
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public ID getId() {
+        return id;
+    }
+
+    public void setId(ID id) {
+        this.id = id;
+    }
+
+    public int getVelX() {
+        return velX;
+    }
+
+    public void setVelX(int velX) {
+        this.velX = velX;
+    }
+
+    public int getVelY() {
+        return velY;
+    }
+
+    public void setVelY(int velY) {
+        this.velY = velY;
+    }
+    
+}

@@ -13,15 +13,16 @@ import java.awt.image.BufferStrategy;
  * @author flemi
  */
 public class Game extends Canvas implements Runnable{
-    
-    //private static final long serialVersionUID = 9283672568L;
-    
+       
     public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
     private Thread thread;
     private boolean running = false;
     
+    public Handler handler;
+    
     public Game(){
-        new Window(WIDTH, HEIGHT, "Let's Build a Game", this);
+        new Window(WIDTH, HEIGHT, "Let's Build a Game!", this);
+        handler = new Handler();
     }
 
     public synchronized void start(){
@@ -68,7 +69,7 @@ public class Game extends Canvas implements Runnable{
     }
 
     private void tick(){
-
+        handler.tick();
     }
 
     public void render(){
@@ -79,8 +80,11 @@ public class Game extends Canvas implements Runnable{
         }
 
         Graphics g = bs.getDrawGraphics();
-        g.setColor(Color.green);
+        g.setColor(Color.black);
         g.fillRect(0,0,WIDTH, HEIGHT);
+        
+        handler.render(g);
+        
         g.dispose();
         bs.show();
     }
