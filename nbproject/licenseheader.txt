@@ -1,0 +1,8 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}Game Development
+${licensePrefix}By Gordon Fleming
+<#if licenseLast??>
+${licenseLast}
+</#if>
